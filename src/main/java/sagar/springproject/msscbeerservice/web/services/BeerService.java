@@ -1,7 +1,6 @@
-package web.services;
+package sagar.springproject.msscbeerservice.web.services;
 
-import org.springframework.http.ResponseEntity;
-import web.models.BeerDto;
+import sagar.springproject.msscbeerservice.web.models.BeerDto;
 
 import java.util.UUID;
 

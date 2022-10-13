@@ -1,10 +1,10 @@
-package web.models;
+package sagar.springproject.msscbeerservice.web.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import web.enums.BeerStyleEnum;
+import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;

@@ -1,10 +1,10 @@
-package web.controller;
+package sagar.springproject.msscbeerservice.web.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import web.models.BeerDto;
-import web.services.BeerService;
+import sagar.springproject.msscbeerservice.web.services.BeerService;
+import sagar.springproject.msscbeerservice.web.models.BeerDto;
 
 import java.util.UUID;
 

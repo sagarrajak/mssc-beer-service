@@ -1,16 +1,17 @@
-package web.services;
+package sagar.springproject.msscbeerservice.web.services;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import web.models.BeerDto;
+import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
+import sagar.springproject.msscbeerservice.web.models.BeerDto;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Service
 public class BeerServiceImpl implements BeerService {
     @Override
     public BeerDto getBeerById(UUID beerId) {
-        return null;
+        return BeerDto.builder().beerName("some name").beerStyle(BeerStyleEnum.ALE).id(UUID.randomUUID()).price(new BigDecimal(1000)).build();
     }
 
     @Override

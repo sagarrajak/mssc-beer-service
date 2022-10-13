@@ -1,4 +1,4 @@
-package web.models;
+package sagar.springproject.msscbeerservice.web.models;
 
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
