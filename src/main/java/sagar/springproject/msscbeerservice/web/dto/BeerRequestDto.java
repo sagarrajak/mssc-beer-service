@@ -1,9 +1,10 @@
-package sagar.springproject.msscbeerservice.web.models;
+package sagar.springproject.msscbeerservice.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import sagar.springproject.msscbeerservice.web.entity.Beer;
 import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 
 import java.math.BigDecimal;
@@ -14,14 +15,21 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto {
-    private UUID id;
+public class BeerRequestDto {
     private Integer version;
-    private OffsetDateTime createdDate;
-    private OffsetDateTime modifiedDate;
     private String beerName;
     private BeerStyleEnum beerStyle;
     private Long upc;
     private BigDecimal price;
     private Integer quantityOnHand;
+    private UUID id;
+
+    public  BeerRequestDto(Beer beer) {
+        this.version = beer.getVersion();
+        this.beerName = beer.getBeerName();
+        this.upc = beer.getUpc();
+        this.price = beer.getPrice();
+        this.quantityOnHand = beer.getQuantityOnHand();
+        this.beerStyle = beer.getBeerStyle();
+    }
 }

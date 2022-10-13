@@ -1,13 +1,14 @@
 package sagar.springproject.msscbeerservice.web.services;
 
-import sagar.springproject.msscbeerservice.web.models.BeerDto;
+import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
+import sagar.springproject.msscbeerservice.web.entity.Beer;
 
 import java.util.UUID;
 
 public interface BeerService {
-    BeerDto getBeerById(UUID beerId);
+    Beer getBeerById(UUID beerId);
 
-    BeerDto createBeer(BeerDto beerDto);
+    Beer createBeer(BeerRequestDto beerRequestDto);
 
-    BeerDto updateBeer(BeerDto beerDto);
+    Beer updateBeer(BeerRequestDto beerRequestDto);
 }

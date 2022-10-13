@@ -1,26 +1,29 @@
 package sagar.springproject.msscbeerservice.web.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
-import sagar.springproject.msscbeerservice.web.models.BeerDto;
+import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
+import sagar.springproject.msscbeerservice.web.entity.Beer;
+import sagar.springproject.msscbeerservice.web.repository.BeerRepository;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Service
 public class BeerServiceImpl implements BeerService {
+    @Autowired
+    BeerRepository beerRepository;
     @Override
-    public BeerDto getBeerById(UUID beerId) {
-        return BeerDto.builder().beerName("some name").beerStyle(BeerStyleEnum.ALE).id(UUID.randomUUID()).price(new BigDecimal(1000)).build();
+    public Beer getBeerById(UUID beerId) {
+        return this.beerRepository.getReferenceById(beerId);
     }
 
     @Override
-    public BeerDto createBeer(BeerDto beerDto) {
-        return null;
+    public Beer createBeer(BeerRequestDto beerRequestDto) {
+        return this.beerRepository.save(new Beer(beerRequestDto));
     }
 
     @Override
-    public BeerDto updateBeer(BeerDto beerDto) {
+    public Beer updateBeer(BeerRequestDto beerRequestDto) {
         return null;
     }
 }
