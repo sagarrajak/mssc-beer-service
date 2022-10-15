@@ -4,13 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
 import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
 import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity
@@ -22,16 +24,18 @@ public class Beer {
     @Id
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid2")
-    @Column(name = "id")
+    @Column(name = "id", nullable = false, updatable = false, columnDefinition = "varchar")
     private UUID id;
 
+    @Version
     private Integer version;
 
-    @Column(name = "created_date")
-    private OffsetDateTime createdDate;
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Timestamp createdDate;
 
-    @Column(name = "modified_date")
-    private OffsetDateTime modifiedDate;
+    @UpdateTimestamp
+    private Timestamp modifiedDate;
 
     @Column(name = "beer_name")
     private String beerName;
@@ -49,8 +53,6 @@ public class Beer {
         this.beerName = beerRequestDto.getBeerName();
         this.beerStyle = beerRequestDto.getBeerStyle();
         this.upc = beerRequestDto.getUpc();
-        this.createdDate = OffsetDateTime.now();
-        this.modifiedDate = OffsetDateTime.now();
         this.price = beerRequestDto.getPrice();
         this.quantityOnHand = beerRequestDto.getQuantityOnHand();
         this.version = beerRequestDto.getVersion();

@@ -35,4 +35,10 @@ public class BeerController {
         Beer beerUpdated = this.beerService.updateBeer(beerRequestDto);
         return new ResponseEntity(new BeerResponseDto(beerUpdated), HttpStatus.ACCEPTED);
     }
+
+    @DeleteMapping("/{beerId}")
+    public ResponseEntity deleteBeer(@PathVariable UUID bearId) {
+        this.beerService.deleteBeer(bearId);
+        return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
 }
