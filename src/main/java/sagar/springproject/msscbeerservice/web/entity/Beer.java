@@ -55,6 +55,5 @@ public class Beer {
         this.upc = beerRequestDto.getUpc();
         this.price = beerRequestDto.getPrice();
         this.quantityOnHand = beerRequestDto.getQuantityOnHand();
-        this.version = beerRequestDto.getVersion();
     }
 }

@@ -13,8 +13,10 @@ public class BeerServiceImpl implements BeerService {
     @Autowired
     BeerRepository beerRepository;
     @Override
-    public Beer getBeerById(UUID beerId) {
-        return this.beerRepository.getReferenceById(beerId);
+    public Beer getBeerById(UUID beerId) throws Exception {
+        return this.beerRepository.findById(beerId).orElseThrow(() ->
+                new Exception("Bad request")
+        );
     }
 
     @Override

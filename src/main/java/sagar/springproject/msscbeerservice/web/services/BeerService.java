@@ -6,7 +6,7 @@ import sagar.springproject.msscbeerservice.web.entity.Beer;
 import java.util.UUID;
 
 public interface BeerService {
-    Beer getBeerById(UUID beerId);
+    Beer getBeerById(UUID beerId) throws Exception;
 
     Beer createBeer(BeerRequestDto beerRequestDto);
 
