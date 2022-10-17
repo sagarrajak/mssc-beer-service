@@ -36,12 +36,4 @@ public class BeerRequestDto {
 
     @Null
     private UUID id;
-
-    public  BeerRequestDto(Beer beer) {
-        this.beerName = beer.getBeerName();
-        this.upc = beer.getUpc();
-        this.price = beer.getPrice();
-        this.quantityOnHand = beer.getQuantityOnHand();
-        this.beerStyle = beer.getBeerStyle();
-    }
 }

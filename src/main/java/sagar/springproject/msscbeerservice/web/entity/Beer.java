@@ -1,9 +1,6 @@
 package sagar.springproject.msscbeerservice.web.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -16,10 +13,10 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 @Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Beer {
     @Id
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
@@ -48,12 +45,4 @@ public class Beer {
 
     @Column(name = "quantity_on_hand")
     private Integer quantityOnHand;
-
-    public  Beer(BeerRequestDto beerRequestDto) {
-        this.beerName = beerRequestDto.getBeerName();
-        this.beerStyle = beerRequestDto.getBeerStyle();
-        this.upc = beerRequestDto.getUpc();
-        this.price = beerRequestDto.getPrice();
-        this.quantityOnHand = beerRequestDto.getQuantityOnHand();
-    }
 }

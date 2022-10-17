@@ -8,6 +8,7 @@ import sagar.springproject.msscbeerservice.web.entity.Beer;
 import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data
@@ -22,14 +23,6 @@ public class BeerResponseDto {
     private BigDecimal price;
     private Integer quantityOnHand;
     private UUID id;
-
-    public  BeerResponseDto(Beer beer) {
-        this.version = beer.getVersion();
-        this.beerName = beer.getBeerName();
-        this.upc = beer.getUpc();
-        this.price = beer.getPrice();
-        this.quantityOnHand = beer.getQuantityOnHand();
-        this.beerStyle = beer.getBeerStyle();
-        this.id = beer.getId();
-    }
+    private OffsetDateTime modifiedDate;
+    private OffsetDateTime createdDate;
 }

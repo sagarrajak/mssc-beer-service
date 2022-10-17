@@ -10,7 +10,7 @@ public interface BeerService {
 
     Beer createBeer(BeerRequestDto beerRequestDto);
 
-    Beer updateBeer(BeerRequestDto beerRequestDto);
+    Beer updateBeer(BeerRequestDto beerRequestDto, UUID uuid) throws Exception;
 
     void deleteBeer(UUID bearId);
 }
