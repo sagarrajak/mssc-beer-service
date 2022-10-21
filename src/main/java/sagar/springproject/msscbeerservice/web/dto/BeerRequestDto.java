@@ -22,14 +22,20 @@ import java.util.UUID;
 public class BeerRequestDto {
     @NotNull
     private String beerName;
+
     @NotNull
     private BeerStyleEnum beerStyle;
+
+
     @Positive
-    @Positive
+    @NotNull
     private Long upc;
+
+
     @Positive
     @NotNull
     private BigDecimal price;
+
     @NotNull
     @Positive
     private Integer quantityOnHand;
