@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @JsonTest
 class BeerResponseDtoTest extends  BeerResponseTest {
 
@@ -23,7 +21,7 @@ class BeerResponseDtoTest extends  BeerResponseTest {
 
     @Test
     void testDeserializedDto() throws JsonProcessingException {
-        String json = "{\"version\":null,\"beerName\":\"Some beer\",\"beerStyle\":\"ALE\",\"upc\":12384938877834,\"price\":10.2200000000000006394884621840901672840118408203125,\"quantityOnHand\":null,\"id\":\"fc4d74ab-7750-4a8a-8c93-119ddc661b3e\",\"modifiedDate\":\"2022-10-19T20:24:33.541058155+05:30\",\"createdDate\":\"2022-10-19T20:24:33.541010733+05:30\"}\n";
+        String json = "{\"version\":null,\"beerName\":\"Some beer\",\"beerStyle\":\"ALE\",\"upc\":12384938877834,\"price\":\"10.2200000000000006394884621840901672840118408203125\",\"quantityOnHand\":null,\"id\":\"18ea86bb-c3c4-424b-a668-aa0769cc2b85\",\"modifiedDate\":\"2022-10-22T18:00:51.413478663+05:30\",\"createdDate\":\"2022-10-22T18:00:51.413425654+05:30\",\"mylLocalDate\":\"20221022\"}\n";
         BeerResponseDto dto = objectMapper.readValue(json, BeerResponseDto.class);
         System.out.println(dto);
     }

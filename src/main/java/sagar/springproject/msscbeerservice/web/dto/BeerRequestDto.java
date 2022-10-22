@@ -1,18 +1,16 @@
 package sagar.springproject.msscbeerservice.web.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Currency;
-import sagar.springproject.msscbeerservice.web.entity.Beer;
 import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data
@@ -32,6 +30,7 @@ public class BeerRequestDto {
     private Long upc;
 
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     @Positive
     @NotNull
     private BigDecimal price;
