@@ -40,7 +40,7 @@ public class Beer {
     @Column(name = "beer_style")
     private BeerStyleEnum beerStyle;
 
-    private Long upc;
+    private String upc;
     private BigDecimal price;
 
     @Column(name = "quantity_on_hand")

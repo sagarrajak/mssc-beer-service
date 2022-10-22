@@ -22,7 +22,7 @@ public class BeerResponseDto {
     private Integer version;
     private String beerName;
     private BeerStyleEnum beerStyle;
-    private Long upc;
+    private String upc;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal price;

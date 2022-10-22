@@ -18,7 +18,7 @@ public class BeerResponseTest {
                 .modifiedDate(OffsetDateTime.now())
                 .price(new BigDecimal(10.22))
                 .mylLocalDate(LocalDate.now())
-                .upc(12384938877834L)
+                .upc(String.valueOf(12384938877834L))
                 .build();
         return some_beer;
     }
