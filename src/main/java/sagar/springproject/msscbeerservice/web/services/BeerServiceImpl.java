@@ -56,9 +56,10 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public BeerPagedList<BeerResponseDto> listBeer(String beerName, String beerStyle, PageRequest pagedParams) {
+    public BeerPagedList<BeerResponseDto> listBeer(String beerName, String beerStyle, Boolean showInventoryOnHand, PageRequest pagedParams) {
         BeerPagedList<BeerResponseDto> beerPagedResponse;
         Page<Beer> beers;
+
 
         if (!StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyle)) {
             beers = this.beerRepository.findAllByBeerNameAndBeerStyle(beerName, beerStyle, pagedParams);
@@ -69,11 +70,19 @@ public class BeerServiceImpl implements BeerService {
         } else {
             beers = this.beerRepository.findAll(pagedParams);
         }
+        List<BeerResponseDto> collect;
+        if (showInventoryOnHand) {
+             collect = beers.getContent().stream().map(beer -> {
+                        return beerResponseMapper.beerToBeerDtoWithInventory(beer);
+                    })
+                    .collect(Collectors.toList());
+        } else {
+             collect = beers.getContent().stream().map(beer -> {
+                        return beerResponseMapper.beerToBeerDto(beer);
+                    })
+                    .collect(Collectors.toList());
+        }
 
-        List<BeerResponseDto> collect = beers.getContent().stream().map(beer -> {
-                    return beerResponseMapper.beerToBeerDto(beer);
-                })
-                .collect(Collectors.toList());
         return new BeerPagedList<BeerResponseDto>(collect, pagedParams, beers.getTotalElements());
     }
 }

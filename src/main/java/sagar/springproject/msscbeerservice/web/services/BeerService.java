@@ -17,5 +17,5 @@ public interface BeerService {
 
     void deleteBeer(UUID bearId);
 
-    BeerPagedList<BeerResponseDto> listBeer(String beerName, String beerStyle, PageRequest pagedParams);
+    BeerPagedList<BeerResponseDto> listBeer(String beerName, String beerStyle, Boolean showInventoryOnHand, PageRequest pagedParams);
 }

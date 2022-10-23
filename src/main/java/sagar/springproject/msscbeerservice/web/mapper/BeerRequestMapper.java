@@ -8,5 +8,6 @@ import sagar.springproject.msscbeerservice.web.entity.Beer;
 @Mapper(uses = {DateMapper.class})
 public interface BeerRequestMapper {
     BeerRequestDto beerToBeerDto(Beer beer);
+
     Beer beerDtoToBeer(BeerRequestDto beer);
 }

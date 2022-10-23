@@ -34,14 +34,17 @@ public class BeerController extends BaseController {
 
     @GetMapping(produces = {"application/json"})
     public ResponseEntity<BeerPagedList> listBeer(
+            @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand,
             @RequestParam(value = "pageNumber", required = false) Integer pageNumber,
             @RequestParam(value = "pageSize", required = false) Integer pageSize,
             @RequestParam(value = "beerName", required = false) String beerName,
             @RequestParam(value = "beerStyle", required = false) String beerStyle
 
     ) {
+        if (showInventoryOnHand == null)
+                showInventoryOnHand = false;
         PageRequest pagedParams = this.getPagedParams(pageNumber, pageSize);
-        BeerPagedList<BeerResponseDto> list =  beerService.listBeer(beerName, beerStyle, pagedParams);
+        BeerPagedList<BeerResponseDto> list =  beerService.listBeer(beerName, beerStyle, showInventoryOnHand, pagedParams);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 

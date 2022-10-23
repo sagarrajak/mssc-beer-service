@@ -6,7 +6,7 @@ import sagar.springproject.msscbeerservice.web.dto.BeerResponseDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
 import sagar.springproject.msscbeerservice.web.services.inventory.BeerInventoryService;
 
-public abstract  class BeerResponseMapperDecorator implements BeerResponseMapper {
+public abstract class BeerResponseMapperDecorator implements BeerResponseMapper {
     @Autowired
     BeerInventoryService beerInventoryService;
 
@@ -21,6 +21,12 @@ public abstract  class BeerResponseMapperDecorator implements BeerResponseMapper
 
     @Override
     public BeerResponseDto beerToBeerDto(Beer beer) {
+        BeerResponseDto beerResponseDto = beerResponseMapper.beerToBeerDto(beer);
+        return beerResponseDto;
+    }
+
+    @Override
+    public BeerResponseDto beerToBeerDtoWithInventory(Beer beer) {
         BeerResponseDto beerResponseDto = beerResponseMapper.beerToBeerDto(beer);
         beerResponseDto.setQuantityOnHand(beerInventoryService.getOnHandInventory(beer.getId()));
         return beerResponseDto;
