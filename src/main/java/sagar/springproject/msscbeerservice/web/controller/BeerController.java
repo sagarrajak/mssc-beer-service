@@ -5,9 +5,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sagar.springproject.msscbeerservice.web.dto.BeerPagedList;
 import sagar.springproject.msscbeerservice.web.dto.BeerResponseDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
 import sagar.springproject.msscbeerservice.web.mapper.BeerRequestMapper;
@@ -23,12 +25,25 @@ import java.util.UUID;
 @RequestMapping("/api/v1/beer")
 @RestController
 @AllArgsConstructor
-public class BeerController {
+public class BeerController extends BaseController {
 
     private BeerService beerService;
 
-    @Autowired
     private BeerResponseMapper beerResponseMapper;
+
+
+    @GetMapping(produces = {"application/json"})
+    public ResponseEntity<BeerPagedList> listBeer(
+            @RequestParam(value = "pageNumber", required = false) Integer pageNumber,
+            @RequestParam(value = "pageSize", required = false) Integer pageSize,
+            @RequestParam(value = "beerName", required = false) String beerName,
+            @RequestParam(value = "beerStyle", required = false) String beerStyle
+
+    ) {
+        PageRequest pagedParams = this.getPagedParams(pageNumber, pageSize);
+        BeerPagedList<BeerResponseDto> list =  beerService.listBeer(beerName, beerStyle, pagedParams);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerResponseDto> getBeerById(@PathVariable UUID beerId) throws Exception {

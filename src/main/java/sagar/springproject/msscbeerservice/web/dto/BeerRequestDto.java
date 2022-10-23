@@ -37,7 +37,7 @@ public class BeerRequestDto {
 
     @NotNull
     @Positive
-    private Integer quantityOnHand;
+    private Integer minOnHand;
 
     @Null
     private UUID id;

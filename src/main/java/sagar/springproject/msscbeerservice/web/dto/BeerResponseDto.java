@@ -26,7 +26,7 @@ public class BeerResponseDto {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal price;
-    private Integer quantityOnHand;
+    private Integer minOnHand;
     private UUID id;
 
 //    @JsonFormat(pattern = "dd-MM-yyyy hh:mm:ss", shape = JsonFormat.Shape.STRING)
@@ -38,4 +38,7 @@ public class BeerResponseDto {
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate mylLocalDate;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Integer quantityOnHand;
 }

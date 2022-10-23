@@ -32,17 +32,22 @@ public class Beer {
     private Timestamp createdDate;
 
     @UpdateTimestamp
+    @Column(name = "last_modified_date")
     private Timestamp modifiedDate;
 
     @Column(name = "beer_name")
     private String beerName;
 
     @Column(name = "beer_style")
-    private BeerStyleEnum beerStyle;
+    private String beerStyle;
 
     private String upc;
     private BigDecimal price;
 
-    @Column(name = "quantity_on_hand")
-    private Integer quantityOnHand;
+    @Column(name = "min_on_hand")
+    private Integer minOnHand;
+
+    @Column(name="quantity_to_brew")
+    private Integer quantityToBrew;
+
 }
