@@ -19,10 +19,12 @@ import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Slf4j
-@RequestMapping("/api/v1/beer")
+@RequestMapping("/api/v1")
 @RestController
 @AllArgsConstructor
 public class BeerController extends BaseController {
@@ -32,7 +34,7 @@ public class BeerController extends BaseController {
     private BeerResponseMapper beerResponseMapper;
 
 
-    @GetMapping(produces = {"application/json"})
+    @GetMapping("/beer")
     public ResponseEntity<BeerPagedList> listBeer(
             @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand,
             @RequestParam(value = "pageNumber", required = false) Integer pageNumber,
@@ -48,7 +50,7 @@ public class BeerController extends BaseController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/{beerId}")
+    @GetMapping("/beer/{beerId}")
     public ResponseEntity<BeerResponseDto> getBeerById(
             @PathVariable UUID beerId,
             @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand
@@ -67,15 +69,29 @@ public class BeerController extends BaseController {
         return new ResponseEntity(this.beerResponseMapper.beerToBeerDto(beer), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{beerId}")
+    @PutMapping("/beer/{beerId}")
     public ResponseEntity<BeerResponseDto> updateBeer(@Valid @RequestBody BeerRequestDto beerRequestDto, @PathVariable UUID bearId) throws Exception {
         Beer beerUpdated = this.beerService.updateBeer(beerRequestDto, bearId);
         return new ResponseEntity(this.beerResponseMapper.beerToBeerDto(beerUpdated), HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping("/{beerId}")
+    @DeleteMapping("/beer/{beerId}")
     public ResponseEntity deleteBeer(@PathVariable UUID bearId) {
         this.beerService.deleteBeer(bearId);
         return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/beer/beerUpc/{upc}")
+    public ResponseEntity getBeerByUpc(@PathVariable String upc, @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand) {
+        if (showInventoryOnHand == null)
+            showInventoryOnHand = false;
+        Beer beer = this.beerService.getBeersByUpc(upc);
+        BeerResponseDto beerResponseDtosList;
+        if (showInventoryOnHand) {
+            beerResponseDtosList = beerResponseMapper.beerToBeerDtoWithInventory(beer);
+        } else {
+            beerResponseDtosList = beerResponseMapper.beerToBeerDto(beer);
+        }
+        return new ResponseEntity(beerResponseDtosList, HttpStatus.OK);
     }
 }

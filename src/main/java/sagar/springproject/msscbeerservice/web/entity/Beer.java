@@ -8,6 +8,7 @@ import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
 import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.UUID;
@@ -17,7 +18,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Beer {
+public class Beer implements Serializable {
+    private static final long serialVersionUID = 3_248_189_030_448_292_002L;
+
     @Id
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid2")

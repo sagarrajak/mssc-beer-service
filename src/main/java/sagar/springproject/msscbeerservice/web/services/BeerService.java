@@ -6,6 +6,7 @@ import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
 import sagar.springproject.msscbeerservice.web.dto.BeerResponseDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface BeerService {
@@ -18,4 +19,6 @@ public interface BeerService {
     void deleteBeer(UUID bearId);
 
     BeerPagedList<BeerResponseDto> listBeer(String beerName, String beerStyle, Boolean showInventoryOnHand, PageRequest pagedParams);
+
+    Beer getBeersByUpc(String upc);
 }

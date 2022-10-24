@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID> {
@@ -16,4 +17,5 @@ public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID> {
 
     Page<Beer> findAllByBeerStyle(String beerName, Pageable pageable);
 
+    Beer findByUpc(String upc);
 }

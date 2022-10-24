@@ -89,4 +89,10 @@ public class BeerServiceImpl implements BeerService {
 
         return new BeerPagedList<BeerResponseDto>(collect, pagedParams, beers.getTotalElements());
     }
+
+    @Cacheable(cacheNames = "beerUpcCache", key = "#upc")
+    @Override
+    public Beer getBeersByUpc(String upc) {
+        return this.beerRepository.findByUpc(upc);
+    }
 }
