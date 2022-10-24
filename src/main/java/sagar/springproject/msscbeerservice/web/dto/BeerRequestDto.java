@@ -10,6 +10,7 @@ import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -17,7 +18,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerRequestDto {
+public class BeerRequestDto implements Serializable {
+    private static final long serialVersionUID = -3612660886693697984L;
     @NotNull
     private String beerName;
 

@@ -49,8 +49,16 @@ public class BeerController extends BaseController {
     }
 
     @GetMapping("/{beerId}")
-    public ResponseEntity<BeerResponseDto> getBeerById(@PathVariable UUID beerId) throws Exception {
-        return new ResponseEntity(this.beerResponseMapper.beerToBeerDto(this.beerService.getBeerById(beerId)), HttpStatus.OK);
+    public ResponseEntity<BeerResponseDto> getBeerById(
+            @PathVariable UUID beerId,
+            @RequestParam(value = "showInventoryOnHand", required = false) Boolean showInventoryOnHand
+    ) throws Exception {
+        if (showInventoryOnHand == null)
+            showInventoryOnHand = false;
+        if (showInventoryOnHand)
+            return new ResponseEntity(this.beerResponseMapper.beerToBeerDtoWithInventory(this.beerService.getBeerById(beerId)), HttpStatus.OK);
+        else
+            return new ResponseEntity(this.beerResponseMapper.beerToBeerDto(this.beerService.getBeerById(beerId)), HttpStatus.OK);
     }
 
     @PostMapping()

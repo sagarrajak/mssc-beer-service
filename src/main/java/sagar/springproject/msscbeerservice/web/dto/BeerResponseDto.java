@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -18,7 +19,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerResponseDto {
+public class BeerResponseDto implements Serializable {
+    private static final long serialVersionUID = 8097086126314990997L;
     private Integer version;
     private String beerName;
     private BeerStyleEnum beerStyle;

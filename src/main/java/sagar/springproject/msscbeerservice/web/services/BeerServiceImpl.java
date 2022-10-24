@@ -3,6 +3,7 @@ package sagar.springproject.msscbeerservice.web.services;
 
 import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,7 @@ public class BeerServiceImpl implements BeerService {
     @Autowired
     BeerResponseMapper beerResponseMapper;
 
+    @Cacheable(cacheNames = "beerCache", key = "#beerId")
     @Override
     public Beer getBeerById(UUID beerId) throws Exception {
         return this.beerRepository.findById(beerId).orElseThrow(() ->
@@ -55,8 +57,10 @@ public class BeerServiceImpl implements BeerService {
         this.beerRepository.deleteById(bearId);
     }
 
+    @Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false")
     @Override
     public BeerPagedList<BeerResponseDto> listBeer(String beerName, String beerStyle, Boolean showInventoryOnHand, PageRequest pagedParams) {
+//        System.out.println("i was called");
         BeerPagedList<BeerResponseDto> beerPagedResponse;
         Page<Beer> beers;
 
