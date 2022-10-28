@@ -2,16 +2,14 @@ package sagar.springproject.msscbeerservice.web.services.brewing;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import sagar.springproject.msscbeerservice.web.config.JmsConfig;
 import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
-import sagar.springproject.msscbeerservice.web.events.BrewBeerEvent;
-import sagar.springproject.msscbeerservice.web.events.NewInventoryEvent;
+import sagar.springproject.events.BrewBeerEvent;
+import sagar.springproject.events.NewInventoryEvent;
 import sagar.springproject.msscbeerservice.web.repository.BeerRepository;
 
 import javax.transaction.Transactional;

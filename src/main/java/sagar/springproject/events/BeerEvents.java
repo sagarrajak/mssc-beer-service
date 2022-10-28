@@ -1,4 +1,4 @@
-package sagar.springproject.msscbeerservice.web.events;
+package sagar.springproject.events;
 
 import lombok.*;
 import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
