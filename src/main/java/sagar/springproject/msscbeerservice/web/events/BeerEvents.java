@@ -1,0 +1,14 @@
+package sagar.springproject.msscbeerservice.web.events;
+
+import lombok.*;
+import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
+
+import java.io.Serializable;
+
+@Data
+@RequiredArgsConstructor
+@Builder
+public class BeerEvents implements Serializable {
+    public final Long serialVersionUID = -234893948L;
+    private final BeerRequestDto beerDto;
+}

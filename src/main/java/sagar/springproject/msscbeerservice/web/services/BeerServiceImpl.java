@@ -63,8 +63,6 @@ public class BeerServiceImpl implements BeerService {
 //        System.out.println("i was called");
         BeerPagedList<BeerResponseDto> beerPagedResponse;
         Page<Beer> beers;
-
-
         if (!StringUtils.isEmpty(beerName) && !StringUtils.isEmpty(beerStyle)) {
             beers = this.beerRepository.findAllByBeerNameAndBeerStyle(beerName, beerStyle, pagedParams);
         } else if (!StringUtils.isEmpty(beerName) && StringUtils.isEmpty(beerStyle)) {
