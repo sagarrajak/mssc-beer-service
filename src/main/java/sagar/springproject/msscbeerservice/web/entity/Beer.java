@@ -3,6 +3,7 @@ package sagar.springproject.msscbeerservice.web.entity;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
 import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
@@ -25,6 +26,7 @@ public class Beer implements Serializable {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid2")
     @Column(name = "id", nullable = false, updatable = false, columnDefinition = "varchar")
+    @Type(type = "org.hibernate.type.UUIDCharType")
     private UUID id;
 
     @Version

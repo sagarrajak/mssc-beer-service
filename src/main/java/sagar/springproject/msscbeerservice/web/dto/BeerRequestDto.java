@@ -43,4 +43,6 @@ public class BeerRequestDto implements Serializable {
 
     @Null
     private UUID id;
+
+    private Integer quantityOnHand;
 }

@@ -9,7 +9,7 @@ import sagar.springproject.msscbeerservice.web.entity.Beer;
 import java.util.List;
 import java.util.UUID;
 
-public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID> {
+public interface BeerRepository extends JpaRepository<Beer, UUID> {
 
     Page<Beer> findAllByBeerName(String beerName, Pageable pageable);
 
