@@ -1,4 +1,4 @@
-package sagar.springproject.msscbeerservice.web.dto;
+package sagar.springproject.models;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

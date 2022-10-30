@@ -3,7 +3,7 @@ package sagar.springproject.msscbeerservice.web.bootstrap;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
-import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
+import sagar.springproject.enums.BeerStyleEnum;
 import sagar.springproject.msscbeerservice.web.repository.BeerRepository;
 
 import java.math.BigDecimal;

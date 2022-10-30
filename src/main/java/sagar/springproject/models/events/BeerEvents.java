@@ -1,7 +1,7 @@
-package sagar.springproject.events;
+package sagar.springproject.models.events;
 
 import lombok.*;
-import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
+import sagar.springproject.models.BeerRequestDto;
 
 import java.io.Serializable;
 

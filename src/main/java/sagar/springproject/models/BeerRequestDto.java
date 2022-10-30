@@ -1,11 +1,11 @@
-package sagar.springproject.msscbeerservice.web.dto;
+package sagar.springproject.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
+import sagar.springproject.enums.BeerStyleEnum;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;

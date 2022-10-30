@@ -1,7 +1,8 @@
 package sagar.springproject.msscbeerservice.web.dto;
 
 import lombok.val;
-import sagar.springproject.msscbeerservice.web.enums.BeerStyleEnum;
+import sagar.springproject.models.BeerResponseDto;
+import sagar.springproject.enums.BeerStyleEnum;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

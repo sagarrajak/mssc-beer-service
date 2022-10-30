@@ -2,7 +2,7 @@ package sagar.springproject.msscbeerservice.web.mapper;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import sagar.springproject.msscbeerservice.web.dto.BeerResponseDto;
+import sagar.springproject.models.BeerResponseDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
 import sagar.springproject.msscbeerservice.web.services.inventory.BeerInventoryService;
 

@@ -1,27 +1,20 @@
 package sagar.springproject.msscbeerservice.web.controller;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sagar.springproject.msscbeerservice.web.dto.BeerPagedList;
-import sagar.springproject.msscbeerservice.web.dto.BeerResponseDto;
+import sagar.springproject.models.BeerPagedList;
+import sagar.springproject.models.BeerResponseDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
-import sagar.springproject.msscbeerservice.web.mapper.BeerRequestMapper;
 import sagar.springproject.msscbeerservice.web.mapper.BeerResponseMapper;
 import sagar.springproject.msscbeerservice.web.services.BeerService;
-import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
+import sagar.springproject.models.BeerRequestDto;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RequestMapping("/api/v1")

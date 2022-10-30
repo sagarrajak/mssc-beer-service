@@ -6,10 +6,10 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 import sagar.springproject.msscbeerservice.web.config.JmsConfig;
-import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
+import sagar.springproject.models.BeerRequestDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
-import sagar.springproject.events.BrewBeerEvent;
-import sagar.springproject.events.NewInventoryEvent;
+import sagar.springproject.models.events.BrewBeerEvent;
+import sagar.springproject.models.events.NewInventoryEvent;
 import sagar.springproject.msscbeerservice.web.repository.BeerRepository;
 
 import javax.transaction.Transactional;

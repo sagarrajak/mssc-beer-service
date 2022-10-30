@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import sagar.springproject.msscbeerservice.web.config.JmsConfig;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
-import sagar.springproject.events.BrewBeerEvent;
+import sagar.springproject.models.events.BrewBeerEvent;
 import sagar.springproject.msscbeerservice.web.mapper.BeerRequestMapper;
 import sagar.springproject.msscbeerservice.web.repository.BeerRepository;
 import sagar.springproject.msscbeerservice.web.services.inventory.BeerInventoryService;

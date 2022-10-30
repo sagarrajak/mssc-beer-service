@@ -1,12 +1,11 @@
 package sagar.springproject.msscbeerservice.web.services;
 
 import org.springframework.data.domain.PageRequest;
-import sagar.springproject.msscbeerservice.web.dto.BeerPagedList;
-import sagar.springproject.msscbeerservice.web.dto.BeerRequestDto;
-import sagar.springproject.msscbeerservice.web.dto.BeerResponseDto;
+import sagar.springproject.models.BeerPagedList;
+import sagar.springproject.models.BeerRequestDto;
+import sagar.springproject.models.BeerResponseDto;
 import sagar.springproject.msscbeerservice.web.entity.Beer;
 
-import java.util.List;
 import java.util.UUID;
 
 public interface BeerService {
